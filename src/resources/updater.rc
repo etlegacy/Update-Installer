@@ -1,4 +1,4 @@
-IDI_APPICON		ICON		DISCARDABLE	"updater.ico"
+IDI_APPICON		ICON		DISCARDABLE	"etl.ico"
 
 1       VERSIONINFO
 FILEVERSION     0,0,1,0
@@ -18,9 +18,9 @@ BEGIN
                         VALUE "OriginalFilename", "updater.exe"
                         VALUE "InternalName", "updater.exe"
                         VALUE "FileDescription", "Software Update Tool"
-                        VALUE "CompanyName", "Mendeley Ltd."
-                        VALUE "LegalCopyright", "(C) Mendeley Ltd. 2011"
-                        VALUE "ProductName", "Mendeley Software Updater"
+                        VALUE "CompanyName", "Legacy Team."
+                        VALUE "LegalCopyright", "© 2011-2014 Legacy Team"
+                        VALUE "ProductName", "Legacy Updater"
                         VALUE "PrivateBuild", "Built by Robert Knight"
                 END
         END

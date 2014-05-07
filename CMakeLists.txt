@@ -31,6 +31,10 @@ if (WIN32)
     set(CMAKE_C_FLAGS_RELEASE "/MT /Zi /O2 /Ob2 /D NDEBUG")
 
     remove_definitions(-DUNICODE -D_UNICODE)
+    
+    if(MSVC)
+		add_definitions(-D_CRT_SECURE_NO_WARNINGS) # Do not show CRT warnings
+	endif()
 else()
 	# optimize for reduced code size
 	set(CMAKE_CXX_FLAGS_RELEASE "-Os")

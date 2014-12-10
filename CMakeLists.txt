@@ -47,10 +47,12 @@ if (APPLE)
 	# of the updater binary
 	set(CMAKE_OSX_ARCHITECTURES i386;x86_64)
 
-	# Build the updater so that it works on OS X 10.5 and above.
-	set(MIN_OSX_VERSION 10.5)
-	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mmacosx-version-min=${MIN_OSX_VERSION}")
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mmacosx-version-min=${MIN_OSX_VERSION}")
+	# Build the updater so that it works on OS X 10.6 and above.
+	if (NOT (DEFINED MIN_OSX_DEPLOYMENT_VERSION))
+	  set(MIN_OSX_DEPLOYMENT_VERSION 10.6)
+	endif()
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mmacosx-version-min=${MIN_OSX_DEPLOYMENT_VERSION}")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mmacosx-version-min=${MIN_OSX_DEPLOYMENT_VERSION}")
 endif()
 
 add_subdirectory(src)

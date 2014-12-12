@@ -147,6 +147,7 @@ int main(int argc, char** argv)
 	installer.setForceElevated(options.forceElevated);
 	installer.setAutoClose(options.autoClose);
 	installer.setExecutable(options.executable);
+	installer.setExecutableArgs(options.executable_args);
 
 	if (options.mode == UpdateInstaller::Main)
 	{

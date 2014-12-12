@@ -415,6 +415,10 @@ void UpdateInstaller::restartMainApp()
 		if (!m_executable.empty())
 		{
 			command = m_installDir + '/' + m_executable;
+			if (!m_executable_args.empty())
+			{
+				args.push_front(m_executable_args);
+			}
 		}
 		else
 		{
@@ -471,3 +475,7 @@ void UpdateInstaller::setExecutable(std::string& bin)
 	m_executable = bin;
 }
 
+void UpdateInstaller::setExecutableArgs(std::string& args)
+{
+	m_executable_args = args;
+}

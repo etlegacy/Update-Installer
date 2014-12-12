@@ -116,6 +116,7 @@ void UpdaterOptions::parse(int argc, char** argv)
 	parser.setOption("wait");
 	parser.setOption("mode");
 	parser.setOption("execute");
+	parser.setOption("execute-args");
 	parser.setFlag("version");
 	parser.setFlag("force-elevated");
 	parser.setFlag("auto-close");
@@ -145,6 +146,10 @@ void UpdaterOptions::parse(int argc, char** argv)
 	if (parser.getValue("execute"))
 	{
 		executable = parser.getValue("execute");
+	}
+	if (parser.getValue("execute-args"))
+	{
+		executable_args = parser.getValue("execute-args");
 	}
 
 	showVersion = parser.getFlag("version");

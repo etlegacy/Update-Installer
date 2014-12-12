@@ -34,6 +34,7 @@ class UpdateInstaller
 		void setForceElevated(bool elevated);
 		void setAutoClose(bool autoClose);
 		void setExecutable(std::string& bin);
+		void setExecutableArgs(std::string& args);
 
 		void setObserver(UpdateObserver* observer);
 
@@ -68,5 +69,6 @@ class UpdateInstaller
 		bool m_forceElevated;
 		bool m_autoClose;
 		std::string m_executable;
+		std::string m_executable_args;
 };
 

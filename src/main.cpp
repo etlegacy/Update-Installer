@@ -146,6 +146,7 @@ int main(int argc, char** argv)
 	installer.setWaitPid(options.waitPid);
 	installer.setForceElevated(options.forceElevated);
 	installer.setAutoClose(options.autoClose);
+	installer.setExecutable(options.executable);
 
 	if (options.mode == UpdateInstaller::Main)
 	{

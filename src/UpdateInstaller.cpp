@@ -412,19 +412,21 @@ void UpdateInstaller::restartMainApp()
 		std::string command;
 		std::list<std::string> args;
 
-		for (std::vector<UpdateScriptFile>::const_iterator iter = m_script->filesToInstall().begin();
-			iter != m_script->filesToInstall().end();
-			iter++)
-		{
-			if (iter->isMainBinary)
-			{
-				command = m_installDir + '/' + iter->path;
-			}
-		}
-
-		if (command.empty() && !m_executable.empty())
+		if (!m_executable.empty())
 		{
 			command = m_installDir + '/' + m_executable;
+		}
+		else
+		{
+			for (std::vector<UpdateScriptFile>::const_iterator iter = m_script->filesToInstall().begin();
+				iter != m_script->filesToInstall().end();
+				iter++)
+			{
+				if (iter->isMainBinary)
+				{
+					command = m_installDir + '/' + iter->path;
+				}
+			}
 		}
 
 		if (!command.empty())

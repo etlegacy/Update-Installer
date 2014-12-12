@@ -422,6 +422,11 @@ void UpdateInstaller::restartMainApp()
 			}
 		}
 
+		if (command.empty() && !m_executable.empty())
+		{
+			command = m_installDir + '/' + m_executable;
+		}
+
 		if (!command.empty())
 		{
 			LOG(Info,"Starting main application " + command);
@@ -457,5 +462,10 @@ void UpdateInstaller::postInstallUpdate()
 void UpdateInstaller::setAutoClose(bool autoClose)
 {
 	m_autoClose = autoClose;
+}
+
+void UpdateInstaller::setExecutable(std::string& bin)
+{
+	m_executable = bin;
 }
 

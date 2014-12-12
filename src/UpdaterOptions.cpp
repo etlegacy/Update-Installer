@@ -115,6 +115,7 @@ void UpdaterOptions::parse(int argc, char** argv)
 	parser.setOption("script");
 	parser.setOption("wait");
 	parser.setOption("mode");
+	parser.setOption("execute");
 	parser.setFlag("version");
 	parser.setFlag("force-elevated");
 	parser.setFlag("auto-close");
@@ -140,6 +141,10 @@ void UpdaterOptions::parse(int argc, char** argv)
 	if (parser.getValue("wait"))
 	{
 		waitPid = static_cast<PLATFORM_PID>(atoll(parser.getValue("wait")));
+	}
+	if (parser.getValue("execute"))
+	{
+		executable = parser.getValue("execute");
 	}
 
 	showVersion = parser.getFlag("version");

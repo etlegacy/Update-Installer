@@ -33,6 +33,7 @@ class UpdateInstaller
 		void setWaitPid(PLATFORM_PID pid);
 		void setForceElevated(bool elevated);
 		void setAutoClose(bool autoClose);
+		void setExecutable(std::string& bin);
 
 		void setObserver(UpdateObserver* observer);
 
@@ -66,5 +67,6 @@ class UpdateInstaller
 		std::map<std::string,std::string> m_backups;
 		bool m_forceElevated;
 		bool m_autoClose;
+		std::string m_executable;
 };
 

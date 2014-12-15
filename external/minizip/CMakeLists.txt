@@ -37,17 +37,17 @@ if (UNIX)
 	# we link statically to libbz2 so that an updater binary
 	# build on Debian (where the packaged libbz2 has a SONAME of "libbz2.so.1.0"
 	# works on Fedora/openSUSE (where no libbz2.so.1.0 symlink exists)
-	# 
+	#
 	# see http://stackoverflow.com/questions/1835489/linking-an-application-to-libbz2-so-1-rather-than-libbz2-so-1-0
 	#
 	find_package(BZip2)
 
-	set(BZ2_LIB_NAME bz2)
-	if (NOT APPLE)
-		set(BZ2_LIB_NAME bz2.a)
+	if(APPLE)
+		set(BZ2_LIB_NAME bz2)
+		target_link_libraries(minizip z ${BZ2_LIB_NAME})
+	else()
+		target_link_libraries(minizip z "${CMAKE_CURRENT_SOURCE_DIR}/../bzip2/libbz2.a")
 	endif()
-
-	target_link_libraries(minizip z ${BZ2_LIB_NAME})
 else()
 	target_link_libraries(minizip
 		"${CMAKE_CURRENT_SOURCE_DIR}/../zlib/prebuilt/zlib_static.lib"
